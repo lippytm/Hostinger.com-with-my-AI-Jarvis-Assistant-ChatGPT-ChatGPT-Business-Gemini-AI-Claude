@@ -1,0 +1,64 @@
+{
+  "schema_version": "0.1.0",
+  "status": "draft-not-for-publication",
+  "currency": "USD",
+  "products": [
+    {
+      "id": "FREE-CHALLENGE-5D",
+      "name": "Free 5-Day AI Builder Challenge",
+      "type": "digital",
+      "price": 0,
+      "purpose": "Complete one beginner-friendly practical build and learn the evidence-first workflow.",
+      "delivery": "download-or-email-after-consent",
+      "requires_final_files": true
+    },
+    {
+      "id": "P11-FIELD-GUIDE",
+      "name": "Prompt #11 Evidence Processing Field Guide",
+      "type": "digital",
+      "price": 1,
+      "purpose": "A compact guide to organizing claims, evidence, decisions, and product-ready outputs.",
+      "delivery": "digital-download",
+      "requires_final_files": true
+    },
+    {
+      "id": "P11-AFFILIATE",
+      "name": "Prompt #11 Affiliate Edition",
+      "type": "digital",
+      "price": 2,
+      "purpose": "Approved promotional guidance and reusable assets subject to the affiliate agreement.",
+      "delivery": "digital-download",
+      "requires_affiliate_terms": true,
+      "income_guarantee": false
+    },
+    {
+      "id": "P11-LEDGER",
+      "name": "Prompt #11 Master Evidence and Product Ledger",
+      "type": "digital",
+      "price": 7,
+      "purpose": "A structured ledger for product evidence, versions, approvals, risks, and next actions.",
+      "delivery": "digital-download",
+      "requires_final_files": true
+    },
+    {
+      "id": "JARVIS-WORKSHOP",
+      "name": "AI Jarvis Build Workshop",
+      "type": "appointment",
+      "price": null,
+      "purpose": "A scheduled, bounded workshop for planning a safe AI, coding, or repository prototype.",
+      "delivery": "appointment",
+      "requires_price_and_schedule_approval": true
+    }
+  ],
+  "publication_requirements": [
+    "approved product files",
+    "license terms",
+    "refund terms",
+    "privacy disclosure",
+    "affiliate disclosure",
+    "earnings disclaimer",
+    "accessibility review",
+    "test checkout",
+    "owner approval"
+  ]
+}
