@@ -41,3 +41,12 @@ Do not commit API keys, passwords, OAuth tokens, customer data or private busine
 3. Run one harmless authenticated round trip.
 4. Verify provider identity, bundle ID, timestamp and SHA-256 receipt.
 5. Mark the station connected only after the verification passes.
+
+## Read-only connection pilot (September 26, 2026)
+
+The Unified Fabric review branch contains `src/jarvis/hostinger.py`, which calls only Hostinger's documented `GET /api/hosting/v1/websites` endpoint. It requires explicit `allow_external=True` and a `HOSTINGER_API_TOKEN` supplied outside Git. The adapter has no deploy, delete, checkout, or website-edit operation. Its request and simulated response are tested offline; no authenticated account result has been obtained.
+
+On an authorized workstation with a private token, run the read-only inventory and verify the intended account contains `aievolutionaryevolutions.com`. Record a redacted receipt with the request time, endpoint, website identity, and response digest; never record the token or full private account inventory in this public repository. Hostinger AI Website Builder editing remains a separate, unverified integration path.
+
+Canonical implementation and runbook: [Hermes MemPalace Hostinger pilot](https://github.com/lippytm/AI-Jarvis-Assistant-ChatGPT-Gemini-AI-GitHub-Claude-and-all-of-my-Repositories-DOG-Dog-dog-/blob/jarvis/unified-ai-fabric-v0.1/docs/HERMES_MEMPALACE_HOSTINGER.md).
+Official API reference: https://docs.hostinger.com/api-reference/overview
