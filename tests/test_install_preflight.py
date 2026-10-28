@@ -49,12 +49,21 @@ class InstallPreflightTests(unittest.TestCase):
             (root / "runtime" / "src" / "server.mjs").write_text(
                 'throw new Error("Preflight must never execute this module");\n'
             )
+            private_env = root / "runtime" / ".env"
+            private_env.write_text("PREFLIGHT_SENTINEL=unchanged\n")
+            private_env.chmod(0o600)
+            installed = root / "runtime" / "node_modules"
+            installed.mkdir()
+            sentinel = installed / "existing-package.txt"
+            sentinel.write_text("preserve installed dependencies")
             result = self.invoke(root)
             self.assertEqual(result.returncode, 0, result.stderr)
             self.assertIn("Source preflight passed", result.stdout)
             self.assertNotIn("Preflight must never execute", result.stderr)
-            self.assertFalse((root / "runtime" / "node_modules").exists())
-            self.assertFalse((root / "runtime" / ".env").exists())
+            self.assertEqual(private_env.read_text(), "PREFLIGHT_SENTINEL=unchanged\n")
+            self.assertEqual(private_env.stat().st_mode & 0o777, 0o600)
+            self.assertEqual(sentinel.read_text(), "preserve installed dependencies")
+            self.assertEqual(list(installed.iterdir()), [sentinel])
 
     def test_invalid_server_syntax_fails_before_success(self):
         with tempfile.TemporaryDirectory() as directory:
